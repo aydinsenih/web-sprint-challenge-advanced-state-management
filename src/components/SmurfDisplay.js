@@ -10,9 +10,13 @@ export class SmurfDisplay extends React.Component {
     render() {
         return (
             <div>
-                {this.props.smurfs.map((smurf) => {
-                    return <Smurf smurf={smurf} key={smurf.id} />;
-                })}
+                {this.props.isBusy ? (
+                    this.props.smurfs.map((smurf) => {
+                        return <Smurf smurf={smurf} key={smurf.id} />;
+                    })
+                ) : (
+                    <div>loading...</div>
+                )}
             </div>
         );
     }
