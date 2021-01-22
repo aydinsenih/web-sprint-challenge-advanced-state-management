@@ -27,6 +27,7 @@ class AddForm extends React.Component {
         } else {
             this.props.setErrorText("validation failed");
         }
+        this.setState({ form: {} });
     };
     render() {
         return (
