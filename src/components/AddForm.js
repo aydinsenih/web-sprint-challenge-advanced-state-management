@@ -37,7 +37,7 @@ class AddForm extends React.Component {
                 <h2>Add Smurf</h2>
                 <form onSubmit={this.handleClick}>
                     <div className="form-group">
-                        <label htmlFor="name">asdName:</label>
+                        <label htmlFor="name">Name:</label>
                         <br />
                         <input
                             onChange={this.handleChange}
