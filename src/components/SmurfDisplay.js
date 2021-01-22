@@ -10,7 +10,7 @@ export class SmurfDisplay extends React.Component {
     render() {
         return (
             <div>
-                {this.props.isBusy ? (
+                {!this.props.isBusy ? (
                     this.props.smurfs.map((smurf) => {
                         return <Smurf smurf={smurf} key={smurf.id} />;
                     })
