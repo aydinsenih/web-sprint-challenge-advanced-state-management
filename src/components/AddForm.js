@@ -53,7 +53,7 @@ class AddForm extends React.Component {
                             name="position"
                             id="position"
                         />
-                        <label htmlFor="nickname">Nick:</label>
+                        <label htmlFor="nickname">Nickname:</label>
                         <br />
                         <input
                             onChange={this.handleChange}
