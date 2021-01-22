@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { addSmurf, setErrorText } from "../actions";
 
 const initialform = { name: "", description: "", nickname: "", position: "" };
+
 class AddForm extends React.Component {
     constructor() {
         super();
