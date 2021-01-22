@@ -42,7 +42,6 @@ export const reducer = (state = initialState, action) => {
                 error: null,
             };
         case ADD_SMURF_SUCCESS:
-            console.log("Reducer", action.payload);
             return {
                 ...state,
                 isBusy: false,

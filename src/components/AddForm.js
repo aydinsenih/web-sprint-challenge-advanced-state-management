@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addSmurf } from "../actions";
+import { addSmurf, setErrorText } from "../actions";
 
 class AddForm extends React.Component {
     constructor() {
@@ -18,7 +18,15 @@ class AddForm extends React.Component {
 
     handleClick = (e) => {
         e.preventDefault();
-        this.props.addSmurf(this.state.form);
+        if (
+            this.state.form.name &&
+            this.state.form.nickname &&
+            this.state.form.position
+        ) {
+            this.props.addSmurf(this.state.form);
+        } else {
+            this.props.setErrorText("validation failed");
+        }
     };
     render() {
         return (
@@ -61,7 +69,7 @@ class AddForm extends React.Component {
                             className="alert alert-danger"
                             role="alert"
                         >
-                            Error:{" "}
+                            Error:{this.props.error}
                         </div>
                     ) : (
                         <></>
@@ -77,7 +85,7 @@ const mapStateToProps = (state) => {
     return state;
 };
 
-export default connect(mapStateToProps, { addSmurf })(AddForm);
+export default connect(mapStateToProps, { addSmurf, setErrorText })(AddForm);
 
 //Task List:
 //1. Add in all necessary import components and library methods.
