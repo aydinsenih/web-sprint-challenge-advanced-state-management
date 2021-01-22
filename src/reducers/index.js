@@ -1,14 +1,75 @@
+import {
+    FETCH_SMURFS_START,
+    FETCH_SMURFS_SUCCESS,
+    FETCH_SMURFS_FAIL,
+    ADD_SMURF_START,
+    ADD_SMURF_SUCCESS,
+    ADD_SMURF_FAIL,
+    SET_ERROR_TEXT,
+} from "./../actions";
 
 export const initialState = {
-}
+    smurfs: [],
+    isBusy: false,
+    error: null,
+};
 
-const reducer = ()=>{
-}
+export const reducer = (state = initialState, action) => {
+    switch (action.type) {
+        case FETCH_SMURFS_START:
+            return {
+                ...state,
+                isBusy: true,
+                error: null,
+            };
+        case FETCH_SMURFS_SUCCESS:
+            return {
+                ...state,
+                isBusy: false,
+                error: null,
+                smurfs: [...action.payload],
+            };
+        case FETCH_SMURFS_FAIL:
+            return {
+                ...state,
+                isBusy: false,
+                error: action.payload,
+            };
+        case ADD_SMURF_START:
+            return {
+                ...state,
+                isBusy: true,
+                error: null,
+            };
+        case ADD_SMURF_SUCCESS:
+            console.log("Reducer", action.payload);
+            return {
+                ...state,
+                isBusy: false,
+                error: null,
+                smurfs: [...state.smurfs, action.payload],
+            };
+        case ADD_SMURF_FAIL:
+            return {
+                ...state,
+                isBusy: false,
+                error: action.payload,
+            };
+        case SET_ERROR_TEXT:
+            return {
+                ...state,
+                isBusy: false,
+                error: action.payload,
+            };
+        default:
+            return state;
+    }
+};
 
 export default reducer;
 
 //Task List:
-//1. Add in the initialState needed to hold: 
+//1. Add in the initialState needed to hold:
 //      - an array of smurfs
 //      - a boolean indicating if the app is loading
 //      - error text
