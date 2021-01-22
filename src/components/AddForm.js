@@ -2,11 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { addSmurf, setErrorText } from "../actions";
 
+const initialform = { name: "", description: "", nickname: "", position: "" };
 class AddForm extends React.Component {
     constructor() {
         super();
         this.state = {
-            form: {},
+            form: initialform,
         };
     }
 
@@ -27,7 +28,7 @@ class AddForm extends React.Component {
         } else {
             this.props.setErrorText("validation failed");
         }
-        this.setState({ form: {} });
+        this.setState({ form: initialform });
     };
     render() {
         return (
@@ -39,6 +40,7 @@ class AddForm extends React.Component {
                         <br />
                         <input
                             onChange={this.handleChange}
+                            value={this.state.form.name}
                             name="name"
                             id="name"
                         />
@@ -46,6 +48,7 @@ class AddForm extends React.Component {
                         <br />
                         <input
                             onChange={this.handleChange}
+                            value={this.state.form.position}
                             name="position"
                             id="position"
                         />
@@ -53,6 +56,7 @@ class AddForm extends React.Component {
                         <br />
                         <input
                             onChange={this.handleChange}
+                            value={this.state.form.nickname}
                             name="nickname"
                             id="nickname"
                         />
@@ -60,6 +64,7 @@ class AddForm extends React.Component {
                         <br />
                         <input
                             onChange={this.handleChange}
+                            value={this.state.form.description}
                             name="description"
                             id="description"
                         />
